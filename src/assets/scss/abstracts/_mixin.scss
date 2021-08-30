@@ -1,0 +1,84 @@
+@use 'variables' as *;
+
+@mixin display {
+  @each $display in $displayMap {
+    .d-#{$display} {
+      display: $display;
+    }
+  }
+}
+
+@mixin column($count) {
+  @for $i from 1 through $count {
+    .col-#{$i} {
+      grid-column: span $i / auto;
+    }
+  }
+}
+
+@mixin row($count) {
+  @for $i from 1 through $count {
+    .row-#{$i} {
+      grid-row: span $i / auto;
+    }
+  }
+}
+
+@mixin justify {
+  @each $justify in $justifyMap {
+    .justify-#{$justify} {
+      justify-content: $justify;
+    }
+  }
+}
+
+@mixin alignItems {
+  @each $align in $alignItemsMap {
+    .align-items-#{$align} {
+      align-items: $align;
+    }
+  }
+}
+
+// *  Media Quires mixin
+@mixin min-q($key) {
+  $size: map-get($breakpoints, $key);
+
+  @media (min-width: $size) {
+    @content;
+  }
+}
+
+@mixin max-q($key) {
+  $size: map-get($breakpoints, $key);
+
+  @media (max-width: $size) {
+    @content;
+  }
+}
+
+@mixin between-q($min, $max) {
+  $small: map-get($breakpoints, $min);
+  $large: map-get($breakpoints, $max);
+
+  @media (min-width: $small) and (max-width: $large) {
+    @content;
+  }
+}
+
+@mixin scroll($color : #555, $hover : #888, $background :#f1f1f1, $width : 10px) {
+  ::-webkit-scrollbar {
+    width: $width;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: $background;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: $color ;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: $hover ;
+  }
+}

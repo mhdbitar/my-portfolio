@@ -1,0 +1,31 @@
+.mainNavigation {
+  &--link {
+    color: var(--color-primary);
+    position: relative;
+    display: block;
+    padding: 0.4em 0.6em;
+    text-decoration: none;
+    font-weight: 700;
+    text-transform: capitalize;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0.6em;
+      bottom: 0;
+      right: 0.6em;
+      height: .10em;
+      background-color: currentColor;
+      transform: scaleX(0);
+      transform-origin: 100% 50%;
+      transition: transform 0.2s;
+    }
+    &:hover ,  &.active{
+      color: var(--color-secondary);
+
+        &::after {
+           transform: scaleX(1);
+        }
+    }
+  }
+}

@@ -1,0 +1,120 @@
+@use '../abstracts/' as *;
+.dp {
+  --margin: 5em;
+  margin: var(--margin) auto;
+  &--transition {
+    margin-top: var(--margin);
+    margin-bottom: var(--margin);
+    padding-top: var(--margin);
+    text-align: center;
+    border-top: 1px solid #f0eeee;
+    &-link {
+      text-decoration: none;
+      margin: 5px;
+      &--grid{
+        border: 0;
+      }
+    }
+  }
+
+  &--header {
+    h1 {
+      font-size: clamp(1.8em, calc(var(--text-fs) + 2.4vw), 3em);
+    }
+    p {
+      margin-top: 0.4em;
+      font-size: clamp(1.125em, calc(var(--text-fs) + 0.2vw), 1.5em);
+      line-height: 1.5;
+      @include min-q(md) {
+        width: 50%;
+      }
+    }
+  }
+  &--content {
+    margin-top: var(--margin);
+    &--main,
+    &--aside {
+      margin-bottom: 2rem;
+    }
+    &--main {
+      &--brief {
+        margin-top: 3rem;
+      }
+    }
+    &--aside {
+      > div {
+        background: #f5f5f5;
+        padding: var(--padding);
+      }
+      &--title {
+        margin-bottom: 0.5em;
+      }
+      &--link {
+        display: block;
+        background: var(--color-secondary);
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        padding: 12px;
+        margin-bottom: 15px;
+      }
+      &--tools {
+        list-style-position: inside;
+        font-size: 14px;
+        li {
+          margin-bottom: 0.4em;
+        }
+      }
+
+      &--properties {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(33%, 1fr));
+      }
+    }
+  }
+
+  &--html {
+    margin-top: 5rem;
+
+    h3{
+      width: 60%;
+      margin-bottom: 20px;
+      strong{
+        font-size: 1.6rem;
+        font-weight: 400;
+      }
+    }
+  }
+}
+@include min-q(lg) {
+  .dp {
+    &--full-preview,
+    &--content {
+      display: grid;
+      gap: var(--gap);
+      grid-template-columns: repeat(12, 1fr);
+    }
+
+    &--content {
+      &--main {
+        grid-column: span 8;
+      }
+      &--aside {
+        grid-column: 9/-1;
+      }
+    }
+    &--html {
+      display: grid;
+      gap: var(--gap);
+      grid-template-columns: repeat(12, 1fr);
+      > div {
+        grid-column: span 8;
+      }
+    }
+    &--full-preview {
+      &--browser {
+        grid-column: span 8;
+      }
+    }
+  }
+}

@@ -1,0 +1,27 @@
+.progress{
+  display: grid;
+  grid-template-columns: min-content auto min-content;
+  margin: 5px 0;
+  align-items: center;
+    &--title {
+      display: inline-block;
+      width: 100px;
+      font-size: 1rem;
+    }
+    &--bar{
+      width: 100%;
+      background: #f3f3f3;
+      height: 20px;
+      position: relative;
+      span{
+        display: block;
+        background: var(--color-secondary);
+        height: 100%;
+      }
+    }
+    &--percentage{
+      display: inline-block;
+      width: 70px;
+      text-align: end;
+    }
+}

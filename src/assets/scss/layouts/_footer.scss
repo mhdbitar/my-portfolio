@@ -1,0 +1,20 @@
+@use './navigation' as *;
+.mainFooter {
+  display: grid;
+  padding: calc(var(--padding) * 2) var(--padding);
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
+  &--twitter {
+    color: var(--color-text);
+    font-weight: bold;
+  }
+  &--link{
+    @extend .mainNavigation--link;
+    display: inline-block;
+    color: var(--color-text);
+
+    &:hover{
+      color: inherit;
+    }
+  }
+}

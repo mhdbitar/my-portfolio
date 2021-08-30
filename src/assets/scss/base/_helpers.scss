@@ -1,0 +1,24 @@
+@use '../abstracts' as *;
+
+
+
+
+.container{
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: auto var(--padding);
+}
+
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(12,1fr);
+     gap: var(--gap);
+}
+
+@include scroll(var(--color-secondary) , var(--color-primary));
+@include display();
+@include justify();
+@include alignItems();
+@include column(12);
+@include row(12);

@@ -1,0 +1,17 @@
+@use '../abstracts' as *;
+:root {
+  @each $key, $value in $roots {
+    --#{$key}: #{$value};
+  }
+  @each $key, $color in $colors {
+    --color-#{$key}: #{$color};
+  }
+}
+
+@each $screen-size, $property in $container {
+  @include min-q($screen-size) {
+    :root {
+      --container: #{$property};
+    }
+  }
+}

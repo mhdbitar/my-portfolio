@@ -1,0 +1,42 @@
+@use '../abstracts/' as *;
+.about-page {
+  margin: 5rem auto;
+
+  &-wrapper {
+    padding: var(--padding);
+    grid-column: span 12;
+    @include min-q(lg) {
+      padding: 0;
+      grid-column: 1/10;
+    }
+  }
+
+  &--title {
+    font-size: clamp(1.8em, calc(var(--text-fs) + 2.4vw), 3em);
+    line-height: 1.4;
+    font-weight: 600;
+  }
+  &--subtitle {
+    font-size: clamp(1.3em, calc(var(--text-fs) + 1.4vw), 2em);
+    grid-row: 3;
+  }
+  &--info {
+    font-size: calc(var(--text-fs) * 1.2);
+    font-weight: 400;
+  }
+}
+
+/*
+ <div className="about-page-wrapper">
+          <h1 className="about-page--title">Who I Am</h1>
+          <p className="about-page--info">
+            I am a Front-end Developer with 6+ years commercial experience based
+            in Istanbul, Turkey. I create successful websites that are fast,
+            easy to use, and built with best practices. During the day I’m the
+            senior developer at a local agency. During the evenings I spend my
+            time with my family and working on freelance projects. I prefer to
+            keep learning, continue challenging myself, and do interesting
+            things that matter
+          </p>
+        </div>
+ */
